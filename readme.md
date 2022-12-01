@@ -1,13 +1,9 @@
-# Keyword Cloud
+# keywordcloud package
 
 ## To Do:
 
-1. Build the app
-
-2. Set up github actions
-
-3. Test with pytest
-
-4. Deploy to dockerhub
-
-5. Test docker container manually
+- [ ] Build the app
+- [ ] Add pytest unit tests
+- [ ] Package the app v.0.1.0
+- [ ] Dockerfile
+- [ ] Github Actions: unit tests, deploy docker
