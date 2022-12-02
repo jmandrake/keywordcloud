@@ -10,7 +10,6 @@ https://github.com/minimaxir/stylecloud
 
 https://fontawesome.com/icons
 
-
 """
 
 def wordcloud_gen():
