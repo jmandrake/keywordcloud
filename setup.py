@@ -16,7 +16,7 @@ LONG_DESCRIPTION = 'A package that creates png image files based on text or the 
 
 setup(
     name="keywordcloud",
-    #packages = ['YOURPACKAGENAME'],   # Chose the same as "name"
+    packages = ["keywordcloud"],   # Chose the same as "name"
     version=VERSION,
     license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     author="Jeffery Mandrake",
@@ -30,10 +30,12 @@ setup(
     install_requires=['python-whois', 'py-thesaurus', 'random-proxies'],
     keywords=['python', 'keyword cloud', 'word cloud', 'wordcloud', 'keywordcloud', 'keywords', 'png', 'keyword'],
     classifiers=[
-        'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+        "Development Status :: 1 - Planning",      # Classifiers: -->> https://pypi.org/classifiers/
         "Intended Audience :: Developers",
-        "Topic :: Software Development :: Build Tools",
-        "License :: OSI Approved :: MIT License",   # Again, pick a license
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Text Processing", 
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content", 
+        "License :: OSI Approved :: MIT License", 
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
