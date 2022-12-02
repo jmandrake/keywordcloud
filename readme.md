@@ -12,3 +12,6 @@
 - Live docker container via https
 - Batch text files
 - Batch URLs file
+
+## Integration with website
+SEO web tools: [amzto.com](https://amzto.com) -- add python app as micro service (new tool) and integrate in site's menu.
