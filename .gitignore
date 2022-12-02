@@ -1,7 +1,7 @@
 *.ipynb
 wordcloudx.py
-
-
+test_images/
+test_imagesx/
 # ==================== source: https://github.com/github/gitignore/raw/main/Global/Linux.gitignore =====================
 *~
 
