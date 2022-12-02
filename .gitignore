@@ -1,3 +1,7 @@
+*.ipynb
+wordcloudx.py
+
+
 # ==================== source: https://github.com/github/gitignore/raw/main/Global/Linux.gitignore =====================
 *~
 

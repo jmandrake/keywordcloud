@@ -27,10 +27,12 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    install_requires=['python-whois', 'py-thesaurus', 'random-proxies'],
-    keywords=['python', 'keyword cloud', 'word cloud', 'wordcloud', 'keywordcloud', 'keywords', 'png', 'keyword'],
+    install_requires=['wordcloud', 'numpy', 'matplotlib', 'pillow'],
+    keywords=['python', 'keyword cloud', 'word cloud', 'wordcloud', 'keywordcloud', 'keywords', 'png', 'keyword', 'text to image'],    
     classifiers=[
-        "Development Status :: 1 - Planning",      # Classifiers: -->> https://pypi.org/classifiers/
+        # Classifiers: -->> https://pypi.org/classifiers/
+        #                   https://pypi.org/search/?q=&o=
+        "Development Status :: 1 - Planning",      
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Text Processing", 
