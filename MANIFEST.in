@@ -1,0 +1,2 @@
+include keywordcloud/*.txt
+include keywordcloud/*.png
