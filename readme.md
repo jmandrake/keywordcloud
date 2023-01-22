@@ -1,12 +1,16 @@
 # Keywordcloud generator using AWS Lambda
 Use this script to create a word cloud image generator using AWS Lambda and S3.
+Lambda trigger: upload background image (png) to s3 bucket
 
 
-## To Do:
+## Set up instructions:
 
-- [ ] Build the app
-- [ ] Add pytest unit tests
-- [ ] Github Actions: unit tests, deploy to AWS Lambda
+- [ ] Create AWS S3 bucket, create folder for image uploads, create folder for output png files (the word cloud png files generated)
+- [ ] Create AWS Lambda Function
+- [ ] Github Actions: test and deploy to AWS Lambda
+- [ ] Upload a text file and a backgound image to the S3 bucket and check for output file
+
+If everything is set up correctly you should be able to see an output file with a word cloud every time you upload a new png file. There must be a matching text file with the same name as the png file or the script will look for a default txt file for keywords. Example: batman-bg.png batman-bg.txt. Default text file: default.txt
 
 ## Planned Integration with website
 SEO web tools: [amzto.com](https://amzto.com) -- add python app as micro service (new tool) and integrate in site's menu.
