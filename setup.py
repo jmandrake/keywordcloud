@@ -10,7 +10,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "0.0.10"
+VERSION = "0.1.0"
 DESCRIPTION = "Generate a word cloud png file based on text or a URL contents."
 LONG_DESCRIPTION = (
     "A package that creates png image files based on text or the contents of a URL."
