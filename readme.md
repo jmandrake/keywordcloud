@@ -1,5 +1,7 @@
 # Keywordcloud generator using AWS Lambda
+
 Use this script to create a word cloud image generator using AWS Lambda and S3.
+
 Lambda trigger: upload background image (png) to s3 bucket
 
 
@@ -20,12 +22,12 @@ SEO web tools: [amzto.com](https://amzto.com) -- add python app as micro service
 
 ## Credits & Resources:
 Special thanks to NeuralNine for the original code base and idea for this project: 
-[Create Fancy Word Clouds in Python - NeuralNine](https://www.youtube.com/watch?v=vRbSnlRyJNQ)
-[Word Cloud in python | Word cloud tutorial](https://www.youtube.com/watch?v=4N_exdTyGHk)
+- [Create Fancy Word Clouds in Python - NeuralNine](https://www.youtube.com/watch?v=vRbSnlRyJNQ)
+- [Word Cloud in python | Word cloud tutorial](https://www.youtube.com/watch?v=4N_exdTyGHk)
 
-[AWS Lambda with S3 Trigger Example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
-[Tutorial: Using an Amazon S3 trigger to create thumbnail images with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-tutorial.html)
+- [AWS Lambda with S3 Trigger Example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
+- [Tutorial: Using an Amazon S3 trigger to create thumbnail images with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-tutorial.html)
 
-[Stylecloud tutorial](https://www.youtube.com/watch?v=txPNMDDWsB8)
-[Fontawesome version 5.x](https://github.com/minimaxir/stylecloud)
-[Fontawesome Icons](https://fontawesome.com/icons)
+- [Stylecloud tutorial](https://www.youtube.com/watch?v=txPNMDDWsB8)
+- [Fontawesome version 5.x](https://github.com/minimaxir/stylecloud)
+- [Fontawesome Icons](https://fontawesome.com/icons)
