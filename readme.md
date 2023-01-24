@@ -10,7 +10,10 @@ Lambda trigger: upload background image (png) to s3 bucket
 - [ ] Github Actions: test and deploy to AWS Lambda
 - [ ] Upload a text file and a backgound image to the S3 bucket and check for output file
 
-If everything is set up correctly you should be able to see an output file with a word cloud every time you upload a new png file. There must be a matching text file with the same name as the png file or the script will look for a default txt file for keywords. Example: batman-bg.png batman-bg.txt. Default text file: default.txt
+If everything is set up correctly you should be able to see an output file with a word cloud every time you upload a new png file. There must be a matching text file with the same name as the png file or the script will look for a default txt file for keywords. Example: myimage.png myimage.txt. Default text file: default.txt. The output image file should be in the output bucket/folder as myimage-output.png
+
+![Output file](keywordcloud/logo-output.png)
+
 
 ## Planned Integration with website
 SEO web tools: [amzto.com](https://amzto.com) -- add python app as micro service (new tool) and integrate in site's menu.
