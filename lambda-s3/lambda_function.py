@@ -1,3 +1,7 @@
+import os
+# cmd = 'ls -l /opt/python/lib/python3.7/site-packages/'
+# os.system(cmd)
+
 import boto3
 from urllib.parse import unquote_plus
 from PIL import Image
@@ -16,8 +20,7 @@ def resize_image(image_path, resized_path):
     image.save(resized_path)
             
 def gen_cloud(txtfile, pngfile, outputfile, bgcolor="white"):
-    """_summary_
-
+    """
     Args:
         txtfile (str): text filename with keywords.
         bgfile (str, optional): background imag filename.
@@ -61,27 +64,38 @@ def gen_cloud(txtfile, pngfile, outputfile, bgcolor="white"):
     plt.imshow(wc, interpolation="bilinear")
     plt.axis("off")
     plt.savefig(outputfile)
-    #plt.show()       
+    # plt.show()
             
             
 def lambda_handler(event, context):
-  for record in event['Records']:
-    bucket = record['s3']['bucket']['name']
-    key = unquote_plus(record['s3']['object']['key'])
-    tmpkey = key.replace('/', '').replace('.png', '')
+    # print(event)
+    print("[1]========================================================\n\n")
+    for record in event['Records']:
+        bucket = record['s3']['bucket']['name']
+        key = unquote_plus(record['s3']['object']['key'])
+        tmpkey = key.replace('/', '').replace('.png', '')
+        
+        key_png = key    
+        download_path_png = '/tmp/{}.png'.format(tmpkey)
+        print(download_path_png)
+        s3_client.download_file(bucket, key_png, download_path_png)
+        
+        key_txt = key.replace('.png', '.txt')
+        download_path_txt = '/tmp/{}.txt'.format(tmpkey)
+        print(download_path_txt)
+        s3_client.download_file(bucket, key_txt, download_path_txt)
+        
+        upload_path_output = '/tmp/{}-output.png'.format(tmpkey)
     
-    key_png = key    
-    download_path_png = '/tmp/{}.png'.format(tmpkey)
-    s3_client.download_file(bucket, key_png, download_path_png)
-    
-    key_txt = key.replace('.png', '.txt')
-    download_path_txt = '/tmp/{}.txt'.format(tmpkey)
-    s3_client.download_file(bucket, key_txt, download_path_txt)
-    
-    upload_path_output = '/tmp/{}-output.png'.format(tmpkey)
-    
-    gen_cloud(download_path_txt, download_path_png, upload_path_output, bgcolor="white")
-    
-    output_bucket = bucket.replace('input', 'output')
-    output_filename = '{}-output.png'.format(tmpkey)
-    s3_client.upload_file(upload_path_output, output_bucket, output_filename)
+        gen_cloud(download_path_txt, download_path_png, upload_path_output, bgcolor="white")
+        
+        os.system('ls -l /tmp/')
+        
+        output_bucket = bucket.replace('input', 'output')
+        output_filename = '{}-output.png'.format(tmpkey)
+        s3_client.upload_file(upload_path_output, output_bucket, output_filename)
+        
+        # s3_client.upload_file("/tmp/logo-output.png", "keyword-cloud-output", "logo-output.png")
+
+        
+        print("[2]========================================================\n\n")

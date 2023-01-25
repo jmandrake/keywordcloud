@@ -2,19 +2,30 @@
 
 Use this script to create a word cloud image generator using AWS Lambda and S3.
 
-Lambda trigger: upload background image (png) to s3 bucket
+Lambda trigger: upload background image (png) to s3 bucket, but you should upload the .txt file first
 
+## To create the zip file for the Lambda layer using requirements.txt:
+- In the following steps, replace python3.7 with the version you choose for the Lambda function
+- pip install -r requirements.txt -t layer/python/lib/python3.7/site-packages/
+- cd layer
+- zip -r mypackage.zip *
+- Lambda will unzip the layer's zip file to /opt/python/lib/python3.7/site-packages/
 
-## Set up instructions:
+The png and txt files will be located in /tmp/ in your Lambda function:
 
-- [ ] Create AWS S3 bucket, create folder for image uploads, create folder for output png files (the word cloud png files generated)
-- [ ] Create AWS Lambda Function
-- [ ] Install packages in local folder: pip install -r requirements.txt -t ./package
-- [ ] cd package
-- [ ] zip -r ../keywordcloud-package.zip .
-- [ ] cd ..
-- [ ] zip keywordcloud-package.zip lambda-function.py
-- [ ] Use Lambda console to upload the package zip file to the function's layer
+- /tmp/logo.png
+- /tmp/logo.txt
+- /tmp/logo-output.png
+
+## Instructions:
+
+- [ ] Create AWS S3 buckets for input and output: keyword-cloud-input, keyword-cloud-output
+- [ ] Create AWS Lambda Function and paste the code from this lambda_function.py
+- [ ] Note: Layer package.zip is unpacked in /opt/ 
+- [ ] Install packages in local folder: pip install -r requirements.txt -t ./bin
+- [ ] cd bin
+- [ ] zip -r ../keywordcloud-bin-package.zip .
+- [ ] Use Lambda console to upload the package zip file to a new layer
 - [ ] (1) Upload a text file to the input bucket eg. logo.txt
 - [ ] (2) Upload backgound image png to the input bucket eg. logo.png 
 - [ ] (3) Check for output file in the output bucket after the lambda function is done. eg. logo-output.png
