@@ -9,13 +9,55 @@ Lambda trigger: upload background image (png) to s3 bucket
 
 - [ ] Create AWS S3 bucket, create folder for image uploads, create folder for output png files (the word cloud png files generated)
 - [ ] Create AWS Lambda Function
-- [ ] Github Actions: test and deploy to AWS Lambda
-- [ ] Upload a text file and a backgound image to the S3 bucket and check for output file
+- [ ] Install packages in local folder: pip install -r requirements.txt -t ./package
+- [ ] cd package
+- [ ] zip -r ../keywordcloud-package.zip .
+- [ ] cd ..
+- [ ] zip keywordcloud-package.zip lambda-function.py
+- [ ] Use Lambda console to upload the package zip file to the function's layer
+- [ ] (1) Upload a text file to the input bucket eg. logo.txt
+- [ ] (2) Upload backgound image png to the input bucket eg. logo.png 
+- [ ] (3) Check for output file in the output bucket after the lambda function is done. eg. logo-output.png
 
-If everything is set up correctly you should be able to see an output file with a word cloud every time you upload a new png file. There must be a matching text file with the same name as the png file or the script will look for a default txt file for keywords. Example: myimage.png myimage.txt. Default text file: default.txt. The output image file should be in the output bucket/folder as myimage-output.png
+If everything is set up correctly you should be able to see an output file with a word cloud every time you upload a new png file. There must be a matching text file with the same name as the png file or the script will look for a default txt file for keywords. The output image file should be in the output bucket/folder.
 
 ![Output file](keywordcloud/logo-output.png)
 
+
+
+
+## IAM Policy for Lambda Function to access S3 and write logs
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::keyword-cloud-input/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::keyword-cloud-output/*"
+        }
+    ]
+}
+```
 
 ## Planned Integration with website
 SEO web tools: [amzto.com](https://amzto.com) -- add python app as micro service (new tool) and integrate in site's menu.
