@@ -3,7 +3,7 @@ install:
 	pip install -r keywordcloud/requirements.txt
 
 lint:
-	pylint --disable=R,C keywordcloud
+	pylint --disable=R,C keywordcloud/*.py lambda-s3/*.py
 
 test:
 	#python -m pytest -vv --cov=keywordcloud --cov=tests
