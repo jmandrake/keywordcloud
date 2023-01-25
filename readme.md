@@ -4,6 +4,9 @@ Use this script to create a word cloud image generator using AWS Lambda and S3.
 
 Lambda trigger: upload background image (png) to s3 bucket, but you should upload the .txt file first
 
+Note: Make sure you adjust your Lambda function's timeout setting. The default may only be 3 seconds. 
+This wordcloud application typically takes more than 3 seconds to generate the new image.
+
 ## To create the zip file for the Lambda layer using requirements.txt:
 - In the following steps, replace python3.7 with the version you choose for the Lambda function
 - pip install -r requirements.txt -t layer/python/lib/python3.7/site-packages/
@@ -21,10 +24,7 @@ The png and txt files will be located in /tmp/ in your Lambda function:
 
 - [ ] Create AWS S3 buckets for input and output: keyword-cloud-input, keyword-cloud-output
 - [ ] Create AWS Lambda Function and paste the code from this lambda_function.py
-- [ ] Note: Layer package.zip is unpacked in /opt/ 
-- [ ] Install packages in local folder: pip install -r requirements.txt -t ./bin
-- [ ] cd bin
-- [ ] zip -r ../keywordcloud-bin-package.zip .
+- [ ] Use instructions above to create a package zip file for your Lambda layer
 - [ ] Use Lambda console to upload the package zip file to a new layer
 - [ ] (1) Upload a text file to the input bucket eg. logo.txt
 - [ ] (2) Upload backgound image png to the input bucket eg. logo.png 
