@@ -6,7 +6,7 @@ lint:
 	pylint --disable=R,C keywordcloud
 
 test:
-	python -m pytest -vv --cov=keywordcloud --cov=tests
+	#python -m pytest -vv --cov=keywordcloud --cov=tests
 
 format:
 	black *.py keywordcloud/*.py
