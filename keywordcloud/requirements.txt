@@ -12,3 +12,6 @@ six
 wordcloud
 stylecloud
 ipython
+pytest
+pytest-cov
+black
